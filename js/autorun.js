@@ -12,8 +12,8 @@ function autorun() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const rom = urlParams.get("rom");
-
-  fetch(rom)
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/"; // Don't judge me
+  fetch(proxyUrl + rom)
     .then((res) => res.blob()) // Gets the response and returns it as a blob
     .then(readBlob)
     .then((readerResult) => {
